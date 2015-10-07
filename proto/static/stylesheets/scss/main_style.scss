@@ -50,17 +50,17 @@ header{
 	left: 0;
 	right: 0;
 	top: 59px;
-	bottom: 152px;
+	bottom: 136px;
+	@include transition(all 0.4s ease-in-out);
 	section{
 		position: absolute;
 		top: 0;
 		bottom: 8px;
-		width: 50%;
 	}
 	
 	#dragger{
 		position: absolute;
-		left: 50%;
+		left: 100%;
 		top: 50%;
 		@include transform(translateX(-50%));
 		width: 30px;
@@ -77,6 +77,7 @@ header{
 	
 	#chat{
 		left: 0;
+		width: 100%;
 		background-color: $edu_light_blue;
 		
 		#chat_transcript{
@@ -198,6 +199,7 @@ header{
 	
 	#graph_paper{
 		right: 0;
+		width: 0;
 	}
 	
 	#workspace_slider{
@@ -216,37 +218,15 @@ footer{
 	left: 0;
 	right: 0;
 	overflow: hidden;
-	#input_indicator{
-		position: relative;
-		float: left;
-		width: 100%;
-		height: 16px;
-		background-color: $edu_mid_grey;
-		#indicators{
-			position: relative;
-			width: 59px;
-			margin-left: auto;
-			margin-right: auto;
-			.list_ball{
-				position: relative;
-				float: left;
-				width: 10px;
-				height: 10px;
-				border-radius: 50%;
-				background-color: white;
-				margin: 3px 10px 0px 3px;
-				&:last-child{
-					margin-right: 0;
-				}
-			}
-		}
-	}
-	
 	#input_ui{
 		position: relative;
 		float: left;
 		width: 100%;
 		height: 136px;
 		background-color: $edu_blue;
+		@include transition(all 0.4s ease-in-out);
+		&.closed{
+			height: 0;
+		}
 	}
 }

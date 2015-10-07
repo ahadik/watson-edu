@@ -94,15 +94,17 @@ header {
   left: 0;
   right: 0;
   top: 59px;
-  bottom: 152px; }
+  bottom: 136px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out; }
   #workspace section {
     position: absolute;
     top: 0;
-    bottom: 8px;
-    width: 50%; }
+    bottom: 8px; }
   #workspace #dragger {
     position: absolute;
-    left: 50%;
+    left: 100%;
     top: 50%;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
@@ -125,6 +127,7 @@ header {
         background-size: 12px 14px; } }
   #workspace #chat {
     left: 0;
+    width: 100%;
     background-color: #DFE8E8; }
     #workspace #chat #chat_transcript {
       position: absolute;
@@ -198,7 +201,8 @@ header {
         border-radius: 5px;
         width: 100%; }
   #workspace #graph_paper {
-    right: 0; }
+    right: 0;
+    width: 0; }
   #workspace #workspace_slider {
     position: absolute;
     bottom: 0;
@@ -213,32 +217,16 @@ footer {
   left: 0;
   right: 0;
   overflow: hidden; }
-  footer #input_indicator {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 16px;
-    background-color: #A7A9AC; }
-    footer #input_indicator #indicators {
-      position: relative;
-      width: 59px;
-      margin-left: auto;
-      margin-right: auto; }
-      footer #input_indicator #indicators .list_ball {
-        position: relative;
-        float: left;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: white;
-        margin: 3px 10px 0px 3px; }
-        footer #input_indicator #indicators .list_ball:last-child {
-          margin-right: 0; }
   footer #input_ui {
     position: relative;
     float: left;
     width: 100%;
     height: 136px;
-    background-color: #283E4F; }
+    background-color: #283E4F;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; }
+    footer #input_ui.closed {
+      height: 0; }
 
 /*# sourceMappingURL=style.css.map */
