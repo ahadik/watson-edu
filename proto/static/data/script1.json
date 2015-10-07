@@ -1,0 +1,6 @@
+var watson_messages = [
+	{
+		text: '',
+		delay: 1
+	}
+]

@@ -19,8 +19,10 @@ $edu_blue: #283E4F;
 $edu_orange: #E86A3D;
 $edu_teal: #72CAC4;
 $edu_yellow: #EEC11B;
+$edu_light_blue: #DFE8E8;
 $edu_light_grey: #E8ECEC;
 $edu_mid_grey: #A7A9AC;
+$edu_text_blue: #325C80;
 
 body{
 	font-family: "Helvetica Neue", sans-serif;
@@ -52,7 +54,7 @@ header{
 	section{
 		position: absolute;
 		top: 0;
-		bottom: 0;
+		bottom: 8px;
 		width: 50%;
 	}
 	
@@ -75,8 +77,110 @@ header{
 	
 	#chat{
 		left: 0;
-		background-color: $edu_light_grey;
-
+		background-color: $edu_light_blue;
+		
+		#chat_transcript{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			padding-top: 17px;
+			overflow-y: scroll;
+			&::-webkit-scrollbar{
+				display: none;
+			}
+			
+			h1, h2{
+				color: $edu_text_blue;
+				text-align: center;
+			}
+			
+			h1{
+				font-size: xx-large;
+				margin-top: 10%;
+			}
+			
+			h2{
+				font-size: large;
+				margin-top: 5%;
+			}
+			
+			.message_wrapper{
+				position: relative;
+				float: left;
+				width: 100%;
+				height: auto;
+				margin-bottom: 17px;
+				
+				&:first-child{
+					margin-top: 17px;
+				}
+				
+				&.user{
+					
+					.message{
+						float: right;
+						margin-right: 25px;
+						margin-left: 43px;
+					}
+					
+					.indicator_bar{
+						background-color: $edu_orange;
+						right: 0;
+					}
+					
+					.message_body{
+						padding-right: 27px;
+						padding-left: 19px;
+					}
+				}
+				
+				&.watson{
+					
+					.message{
+						float: left;
+						margin-left: 25px;
+						margin-right: 43px;
+					}
+					
+					.indicator_bar{
+						background-color: $edu_teal;
+						left: 0;
+					}
+					
+					.message_body{
+						padding-left: 27px;
+						padding-right: 19px;
+					}
+				}
+				
+				.message{
+					position: relative;
+					
+					.indicator_bar{
+						position: absolute;
+						height: 100%;
+						width: 6px;
+						z-index: 1;
+					}
+					
+					.message_body{
+						position: relative;
+						box-sizing: border-box;
+						width: 100%;
+						padding-top: 19px;
+						padding-bottom: 19px;
+						background-color: white;
+						p{
+							color: $edu_text_blue;
+						}
+					}
+					
+					
+				}
+			}
+			
+		}
+		
 		#chat_box{
 			position: absolute;
 			left: 15px;
@@ -94,6 +198,14 @@ header{
 	
 	#graph_paper{
 		right: 0;
+	}
+	
+	#workspace_slider{
+		position: absolute;
+		bottom: 0;
+		height: 8px;
+		width: 100%;
+		background-color: $edu_light_grey;
 	}
 }	
 

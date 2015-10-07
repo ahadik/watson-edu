@@ -46,7 +46,6 @@ table {
 
 .expandingArea > textarea, .expandingArea > pre {
   padding: 5px;
-  background: transparent;
   font: 400 13px/16px helvetica, arial, sans-serif;
   white-space: pre-wrap;
   word-wrap: break-word; }
@@ -66,6 +65,7 @@ table {
   resize: none; }
 
 .expandingArea > pre {
+  background: transparent;
   display: none; }
 
 .expandingArea.active > pre {
@@ -98,7 +98,7 @@ header {
   #workspace section {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 8px;
     width: 50%; }
   #workspace #dragger {
     position: absolute;
@@ -125,7 +125,68 @@ header {
         background-size: 12px 14px; } }
   #workspace #chat {
     left: 0;
-    background-color: #E8ECEC; }
+    background-color: #DFE8E8; }
+    #workspace #chat #chat_transcript {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding-top: 17px;
+      overflow-y: scroll; }
+      #workspace #chat #chat_transcript::-webkit-scrollbar {
+        display: none; }
+      #workspace #chat #chat_transcript h1, #workspace #chat #chat_transcript h2 {
+        color: #325C80;
+        text-align: center; }
+      #workspace #chat #chat_transcript h1 {
+        font-size: xx-large;
+        margin-top: 10%; }
+      #workspace #chat #chat_transcript h2 {
+        font-size: large;
+        margin-top: 5%; }
+      #workspace #chat #chat_transcript .message_wrapper {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        margin-bottom: 17px; }
+        #workspace #chat #chat_transcript .message_wrapper:first-child {
+          margin-top: 17px; }
+        #workspace #chat #chat_transcript .message_wrapper.user .message {
+          float: right;
+          margin-right: 25px;
+          margin-left: 43px; }
+        #workspace #chat #chat_transcript .message_wrapper.user .indicator_bar {
+          background-color: #E86A3D;
+          right: 0; }
+        #workspace #chat #chat_transcript .message_wrapper.user .message_body {
+          padding-right: 27px;
+          padding-left: 19px; }
+        #workspace #chat #chat_transcript .message_wrapper.watson .message {
+          float: left;
+          margin-left: 25px;
+          margin-right: 43px; }
+        #workspace #chat #chat_transcript .message_wrapper.watson .indicator_bar {
+          background-color: #72CAC4;
+          left: 0; }
+        #workspace #chat #chat_transcript .message_wrapper.watson .message_body {
+          padding-left: 27px;
+          padding-right: 19px; }
+        #workspace #chat #chat_transcript .message_wrapper .message {
+          position: relative; }
+          #workspace #chat #chat_transcript .message_wrapper .message .indicator_bar {
+            position: absolute;
+            height: 100%;
+            width: 6px;
+            z-index: 1; }
+          #workspace #chat #chat_transcript .message_wrapper .message .message_body {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            padding-top: 19px;
+            padding-bottom: 19px;
+            background-color: white; }
+            #workspace #chat #chat_transcript .message_wrapper .message .message_body p {
+              color: #325C80; }
     #workspace #chat #chat_box {
       position: absolute;
       left: 15px;
@@ -138,6 +199,12 @@ header {
         width: 100%; }
   #workspace #graph_paper {
     right: 0; }
+  #workspace #workspace_slider {
+    position: absolute;
+    bottom: 0;
+    height: 8px;
+    width: 100%;
+    background-color: #E8ECEC; }
 
 footer {
   position: absolute;
