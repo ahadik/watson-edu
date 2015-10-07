@@ -1,0 +1,140 @@
+@import "bourbon/bourbon";
+@import "reset";
+@import "expandingText";
+
+@mixin retina($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+
+$edu_blue: #283E4F;
+$edu_orange: #E86A3D;
+$edu_teal: #72CAC4;
+$edu_yellow: #EEC11B;
+$edu_light_grey: #E8ECEC;
+$edu_mid_grey: #A7A9AC;
+
+body{
+	font-family: "Helvetica Neue", sans-serif;
+	color: white;
+}
+
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 59px;
+	background-color: $edu_blue;
+	
+	h1{
+		position: relative;
+		text-align: center;
+		margin-top: 30px;
+		font-size: 18px;
+	}	
+}
+
+#workspace{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 59px;
+	bottom: 152px;
+	section{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50%;
+	}
+	
+	#dragger{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		@include transform(translateX(-50%));
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: $edu_mid_grey;
+		z-index: 100;
+		background-image: url('../images/inner_texture-1x.png');
+		background-size: 12px 14px;
+		@include retina('../images/inner_texture-2x.png', 12px, 14px);
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+	
+	#chat{
+		left: 0;
+		background-color: $edu_light_grey;
+
+		#chat_box{
+			position: absolute;
+			left: 15px;
+			right: 15px;
+			bottom: 15px;
+			background-color: white;
+			border-radius: 5px;
+			textarea{
+				border-radius: 5px;
+				width: 100%;
+			}
+			
+		}
+	}
+	
+	#graph_paper{
+		right: 0;
+	}
+}	
+
+footer{
+	position: absolute;
+	height: auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	#input_indicator{
+		position: relative;
+		float: left;
+		width: 100%;
+		height: 16px;
+		background-color: $edu_mid_grey;
+		#indicators{
+			position: relative;
+			width: 59px;
+			margin-left: auto;
+			margin-right: auto;
+			.list_ball{
+				position: relative;
+				float: left;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: white;
+				margin: 3px 10px 0px 3px;
+				&:last-child{
+					margin-right: 0;
+				}
+			}
+		}
+	}
+	
+	#input_ui{
+		position: relative;
+		float: left;
+		width: 100%;
+		height: 136px;
+		background-color: $edu_blue;
+	}
+}

@@ -1,0 +1,27 @@
+.expandingArea > textarea, .expandingArea > pre
+	padding: 5px
+	background: transparent
+	font: 400 13px/16px helvetica, arial, sans-serif
+	white-space: pre-wrap
+	word-wrap: break-word
+
+.expandingArea > textarea
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	-ms-box-sizing: border-box
+	box-sizing: border-box
+
+.expandingArea.active > textarea
+	overflow: hidden
+	position: absolute
+	top: 0
+	left: 0
+	height: 100%
+	resize: none
+
+.expandingArea > pre
+	display: none
+	
+.expandingArea.active > pre
+	display: block
+	visibility: hidden
