@@ -150,8 +150,9 @@ header {
         background-size: 12px 14px; } }
   #workspace #chat {
     left: 0;
-    width: 100%;
-    background-color: #DFE8E8; }
+    right: 0;
+    background-color: #DFE8E8;
+    z-index: 10; }
     #workspace #chat #chat_transcript {
       position: absolute;
       top: 0;
@@ -235,13 +236,34 @@ header {
   #workspace #graph_paper {
     right: 0;
     width: 0; }
-    #workspace #graph_paper #problem {
+    #workspace #graph_paper #scratch_wrap {
       position: relative;
       width: 100%;
-      height: 65px;
-      background-color: #E86A3D;
-      text-align: center;
-      line-height: 65px; }
+      height: 100%; }
+      #workspace #graph_paper #scratch_wrap #problem {
+        position: relative;
+        width: 100%;
+        height: 65px;
+        background-color: #E86A3D;
+        text-align: center;
+        line-height: 65px; }
+      #workspace #graph_paper #scratch_wrap #grid {
+        position: absolute;
+        top: 65px;
+        bottom: 0;
+        width: 100%;
+        overflow: hidden; }
+        #workspace #graph_paper #scratch_wrap #grid table {
+          position: absolute;
+          left: -50%;
+          table-layout: fixed; }
+          #workspace #graph_paper #scratch_wrap #grid table tr td {
+            width: 32px;
+            height: 32px;
+            border: 1px #ECECEC solid;
+            color: black;
+            vertical-align: middle;
+            text-align: center; }
   #workspace #workspace_slider {
     position: absolute;
     bottom: 0;
@@ -267,6 +289,7 @@ footer {
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 10;
     background-image: url("../images/mic-1x.png");
     background-position: center center;
     background-repeat: no-repeat; }
@@ -275,5 +298,45 @@ footer {
         /* on retina, use image that's scaled by 2 */
         background-image: url("../images/mic-2x.png");
         background-size: 22px 35px; } }
+    footer #mic .mic_circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid white;
+      -webkit-animation: scale 1s ease-in;
+      -moz-animation: scale 1s ease-in;
+      animation: scale 1s ease-in;
+      -webkit-animation-fill-mode: backwards;
+      -moz-animation-fill-mode: backwards;
+      animation-fill-mode: backwards; }
+@-webkit-keyframes scale {
+  0%, 100% {
+    -webkit-transform: scale(1); }
+  50% {
+    -webkit-transform: scale(2); } }
+@-moz-keyframes scale {
+  0%, 100% {
+    -moz-transform: scale(1); }
+  50% {
+    -moz-transform: scale(2); } }
+@keyframes scale {
+  0%, 100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2); } }
 
 /*# sourceMappingURL=style.css.map */

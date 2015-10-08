@@ -106,9 +106,9 @@ header{
 	
 	#chat{
 		left: 0;
-		width: 100%;
+		right: 0;
 		background-color: $edu_light_blue;
-		
+		z-index: 10;
 		#chat_transcript{
 			position: absolute;
 			top: 0;
@@ -238,13 +238,41 @@ header{
 	#graph_paper{
 		right: 0;
 		width: 0;
-		#problem{
+		
+		#scratch_wrap{
 			position: relative;
 			width: 100%;
-			height: 65px;
-			background-color: $edu_orange;
-			text-align: center;
-			line-height: 65px;
+			height: 100%;			
+			#problem{
+				position: relative;
+				width: 100%;
+				height: 65px;
+				background-color: $edu_orange;
+				text-align: center;
+				line-height: 65px;
+			}
+			#grid{
+				position: absolute;
+				top: 65px;
+				bottom: 0;
+				width: 100%;
+				overflow: hidden;
+				table{
+					position: absolute;
+					left: -50%;
+					table-layout: fixed;
+					tr{
+						td{
+							width: 32px;
+							height: 32px;
+							border: 1px #ECECEC solid;
+							color: black;
+							vertical-align: middle;
+							text-align: center;
+						}
+					}
+				}
+			}
 		}
 	}
 	
@@ -274,9 +302,31 @@ footer{
 		position: relative;
 		width: 100%;
 		height: 100%;
+		z-index: 10;
 		background-image: url('../images/mic-1x.png');
 		background-position: center center;
 		background-repeat: no-repeat;
 		@include retina('../images/mic-2x.png', 22px, 35px);
+		
+		.mic_circle{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+			border-radius: 50%;
+			border: 1px solid white;
+			@include animation(scale 1.0s ease-in);
+			@include animation-fill-mode(backwards);
+		}
+		
+		@include keyframes(scale) {
+			0%, 100% {
+				@include transform(scale(1));
+			}
+			50% {
+				@include transform(scale(2));
+			}
+		}
+		
 	}
 }

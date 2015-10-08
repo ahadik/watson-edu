@@ -28,13 +28,13 @@ var conversation = [
 		source: 1,
 		input: 0,
 		chat: "I started by subtracting 6 from both sides.  And I got x^2 + 4x = -6.",
-		scratch_paper: "x^2 + 4x = -6"
+		scratch_paper: "x^2+4x=-6"
 	},
 	{
 		source: 1,
 		input: 0,
-		chat: "Then, I added 4 to both sides.  And I got  x2 + 4x + 4 = -2.",
-		scratch_paper: "x2 + 4x + 4 = -2"
+		chat: "Then, I added 4 to both sides.  And I got  x^2 + 4x + 4 = -2.",
+		scratch_paper: "x^2 + 4x + 4 = -2"
 	},
 	{
 		source: 1,

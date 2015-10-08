@@ -1,3 +1,5 @@
+var active_line = 1;
+
 function parse_and_ornament(string){
 	var parsed_string='';
 	var check_chars = ['^'];
@@ -7,7 +9,6 @@ function parse_and_ornament(string){
 	
 	while(string.length > 0){	
 		//check if the character is a check character
-		console.log(string);
 		if(check_chars.indexOf(this_char)>-1){
 			if(this_char == '^'){
 				parsed_string+='<sup>';
@@ -32,6 +33,26 @@ function parse_and_ornament(string){
 		string = string.slice(1);
 	}
 	return parsed_string+this_char;
+}
+
+function parse_and_split(equation){
+	var equation_parts = [];
+	var working_ind = 0;
+	var split_symbols = ['+', '/', '*', '-', '='];
+	equation_parts.push(equation[0]);
+	for (var i = 1; i<equation.length; i++){
+		//skip to the next index if this is a space
+		if(equation[i] == ' '){continue;}
+		if(split_symbols.indexOf(equation[i]) > -1){
+			equation_parts.push(equation[i]);
+			i++;
+			equation_parts.push(equation[i]);
+			working_ind+=2;
+		}else{
+			equation_parts[working_ind]+=equation[i];
+		}
+	}
+	return equation_parts;
 }
 
 function advance_conversation(message_text){
@@ -61,11 +82,34 @@ function advance_conversation(message_text){
 			$('#problem h1').html(parse_and_ornament(message.scratch_paper));
 		}
 		
+		var graph_parts = parse_and_split(message.scratch_paper);
+		var working_line = $($('#grid tr')[active_line]);
+		var center_col = Math.floor($('#grid tr:first-child td').length/2);
+		var equal_cell = $($('td', working_line)[center_col]);
+		var equal_ind = graph_parts.indexOf('=');
+		equal_cell.html('=');
+		var working_cell = equal_cell;
+		for(var i = equal_ind-1; i>-1; i--){
+			working_cell.prev().html(parse_and_ornament(graph_parts[i]));
+			working_cell = working_cell.prev();
+		}
+		
+		working_cell = equal_cell;
+		
+		
+		for(var i = equal_ind+1; i<graph_parts.length+1; i++){
+			working_cell.next().html(graph_parts[i]);
+			working_cell = working_cell.next();
+		}
+		
+		active_line++;
+		
 	}
 	
 	if(conversation[0].source == 0){
 		setTimeout(advance_conversation, 1500);
 	}
+	updateMessageHeight();
 }
 
 function updateMessageHeight(){
@@ -108,7 +152,7 @@ function appendMessage(message, user_code){
 			'<div class="message">'+
 				'<div class="indicator_bar"></div>'+
 				'<div class="message_body">'+
-					'<p>'+message+'</p>'+
+					'<p>'+parse_and_ornament(message)+'</p>'+
 				'</div>'+
 			'</div>'+
 		'</div>'
@@ -134,6 +178,26 @@ function appendMessage(message, user_code){
 	}
 }
 
+function set_grid(){
+	var max_grid_width = $(window).width();
+	var max_grid_height = $('#grid').height();
+	var num_cols = Math.ceil(max_grid_width/32);
+	var num_rows = Math.ceil(max_grid_height/32);
+	
+	$('#grid table').css({'width' : max_grid_width});
+	
+	var row = $('<tr></tr>');
+	
+	for(var i = 0; i<num_cols; i++){
+		row.append('<td width="32" height="32"></td>');
+	}
+	 $('#grid table').append(row);
+	 
+	 for(var i=0; i<num_rows-1; i++){
+		 $('#grid table').append(row.clone());
+	 }
+}
+
 $(document).ready(function(){
 	
 	var prev_dragger_pos = $('#dragger').position().left;
@@ -141,16 +205,25 @@ $(document).ready(function(){
 	var area;
 	var span;
 	
+	set_grid();
+	
 	$('#dragger').draggable({
 		axis: 'x',
 		drag: function(event, ui){
-			var pos = $('#dragger').position().left;
+			var pos = $('#dragger').position().left+15;
 			
 			if ((pos < screen_width) & (pos > 0)){
 				var dif = pos - prev_dragger_pos;
-				$('#chat').css({'width': '+='+dif});
-				$('#graph_paper').css({'width': '-='+dif});
+
+				$('#chat').css({'width' : pos+'px'});
+				$('#graph_paper').css({'width' : screen_width-pos+'px'})
+
 				prev_dragger_pos = $('#dragger').position().left;
+				
+				var grid_width = $('#grid table').width();
+				var graph_width = $('#graph_paper').width();
+				var graph_diff = graph_width-grid_width;
+				$('#grid table').css({'left' : (graph_diff/2)+'px'});
 			}
 		},
 		stop: function(event, ui){
