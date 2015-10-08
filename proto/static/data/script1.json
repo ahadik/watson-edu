@@ -1,6 +1,117 @@
-var watson_messages = [
+var conversation = [
 	{
-		text: '',
-		delay: 1
-	}
+		source: 1,
+		input: 0,
+		chat: "Hey Watson, I am working on my Algebra homework, and I just need to check my answer for the problem: x^2 + 4x + 6 = 0. For x, I got -&radic;2 - 2. Is it correct?",
+		scratch_paper: "x^2 + 4x + 6 = 0"
+	},
+	{
+		source: 0,
+		input: null,
+		space: 0,
+		chat: "Nice attempt, Carlos, but I have a different answer. There are a couple of methods to solve for x. Which one did you use?",
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 0,
+		chat: "I used completing the square method.",
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		chat: "Why don't you walk me through your process?",
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 0,
+		chat: "I started by subtracting 6 from both sides.  And I got x^2 + 4x = -6.",
+		scratch_paper: "x^2 + 4x = -6"
+	},
+	{
+		source: 1,
+		input: 0,
+		chat: "Then, I added 4 to both sides.  And I got  x2 + 4x + 4 = -2.",
+		scratch_paper: "x2 + 4x + 4 = -2"
+	},
+	{
+		source: 1,
+		input: 0,
+		chat: "Then I factored the left hand side.",
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		chat: "Sorry, I didn't get that. Can you use the math keyboard to input your process?",
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 1,
+		chat: null,
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 1,
+		chat: null,
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		chat: "Carlos, you didn't put in the imaginary numbers. Here is a video of Prof. Smith from Standford University teaching how to find imaginary numbers!",
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		video: "media/ProfessorAlex.mp4",
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 1,
+		chat: null,
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 1,
+		chat: null,
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 1,
+		chat: null,
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		chat: "Good job Carlos! That’s correct! I saved our conversation into Notes. Just to summarize the concept: some functions don’t have real roots so we have to use imaginary roots instead.",
+		scratch_paper: null
+	},
+	{
+		source: 1,
+		input: 1,
+		chat: null,
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		chat: "Did you know that imaginary numbers are also used in music? Check out this video about fourier transforms in the recording studio!",
+		scratch_paper: null
+	},
+	{
+		source: 0,
+		input: null,
+		video: "media/ProfessorAlex.mp4",
+		scratch_paper: null
+	},
 ]
