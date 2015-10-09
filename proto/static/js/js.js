@@ -361,6 +361,7 @@ $(document).ready(function(){
 			$('#chat_box').fadeIn();
 			$('#workspace_slider .slider').css({"left" : 0, "width" : $('#chat').width()});
 		}
+		$('#chat_transcript').css({'height': $('#chat').height()-$('#chat_box').height()-15});
 	});
 	
 	$('#graph_paper').click(function(){
