@@ -7,46 +7,67 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<link rel="apple-touch-icon" sizes="76x76" href="images/ipad-launch.png">
+		<link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px)
+                 and (-webkit-device-pixel-ratio: 2)
+                 and (orientation: portrait)"
+          href="images/ipad-portrait-splash-screen.png">
+          
+          <link rel="apple-touch-startup-image"
+          media="(device-width: 768px) and (device-height: 1024px)
+                 and (-webkit-device-pixel-ratio: 2)
+                 and (orientation: landscape)"
+          href="images/ipad-landscape-splash-screen.png"
+          >
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<script src="data/script1.json"></script>
 		<script src="js/js.js" charset="utf-8"></script>
 	</head>
 	<body>
-		<header>
-			<h1>Watson and Me</h1>
-		</header>
-		<section id="workspace">
-			<div id="dragger"></div>
-			<section id="chat">
-				<div id="chat_transcript">
-					<h1>Hello Carlos</h1>
-					<h2>How may I help you today?</h2>
-				</div>
-				<div id="chat_box" class="expandingArea">
-					<pre><span></span><br></pre>
-					<textarea placeholder="Message" name="chat_input"></textarea>
-					<span></span>
+		<main>
+			<header>
+				<h1><span class="light">Professor</span> <span class="bold">Watson</span></h1>
+			</header>
+			<section id="workspace">
+				<div id="dragger"></div>
+				<section id="chat">
+					<div id="chat_transcript">
+						<div class="watson_logo"></div>
+						<h1>Hello Carlos</h1>
+						<h2>How may I help you today?</h2>
+					</div>
+					<div id="chat_box" class="expandingArea">
+						<pre><span></span><br></pre>
+						<textarea placeholder="Message" name="chat_input"></textarea>
+						<span></span>
+					</div>
+				</section>
+				<section id="graph_paper">
+					<div id="scratch_wrap">
+						<div id="problem">
+							<h1></h1>
+						</div>
+						<div id="grid">
+							<table>
+							</table>
+						</div>
+							<div id="math_box" class="expandingArea">
+							<pre><span></span><br></pre>
+							<textarea placeholder="Formula" name="math_input"></textarea>
+						</div>
+					</div>
+				</section>
+				<div id="workspace_slider">
+					<div class="slider"></div>
 				</div>
 			</section>
-			<section id="graph_paper">
-				<div id="scratch_wrap">
-					<div id="problem">
-						<h1></h1>
-					</div>
-					<div id="grid">
-						<table>
-						</table>
-					</div>
+			<footer id="input_method" class="closed">
+				<div id="mic">
+					<div class="mic_circle_small"></div>
+					<div class="mic_circle_med"></div>
+					<div class="mic_circle_large"></div>
 				</div>
-			</section>
-			<div id="workspace_slider">
-				<div class="slider"></div>
-			</div>
-		</section>
-		<footer id="input_method" class="closed">
-			<div id="mic">
-				<div class="mic_circle"></div>
-			</div>
-		</footer>
+			</footer>
+		</main>
 	</body>
 	<script src="js/punch/jquery.ui.touch-punch.min.js" charset="utf-8"></script>
 </html>

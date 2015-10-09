@@ -52,10 +52,31 @@ $edu_light_blue: #DFE8E8;
 $edu_light_grey: #E8ECEC;
 $edu_mid_grey: #A7A9AC;
 $edu_text_blue: #325C80;
+$edu_cell_green: #C9E08F;
+$edu_cell_red: #FED4A0;
+
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+}
+
+html{
+	@include transition(height 0.4s ease-in-out);
+}
 
 body{
 	font-family: "Helvetica Neue", sans-serif;
 	color: white;
+}
+
+main{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 header{
@@ -71,6 +92,16 @@ header{
 		text-align: center;
 		margin-top: 30px;
 		font-size: 18px;
+		
+		.light{
+			font-family: "Helvetica Neue Light", sans-serif;
+			font-weight: 100;
+		}
+		
+		.bold{
+			font-weight: 700;
+		}
+		
 	}	
 }
 
@@ -115,6 +146,8 @@ header{
 			width: 100%;
 			padding-top: 17px;
 			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+			z-index: 100;
 			&::-webkit-scrollbar{
 				display: none;
 			}
@@ -126,12 +159,26 @@ header{
 			
 			h1{
 				font-size: xx-large;
-				margin-top: 10%;
+				margin-top: 75px;
 			}
 			
 			h2{
 				font-size: large;
-				margin-top: 5%;
+				margin-top: 50px;
+			}
+			
+			.watson_logo{
+				position: relative;
+				margin-left: auto;
+				margin-right: auto;
+				width: 115px;
+				height: 114px;
+				background-image: url('../images/watson_home_1x.png');
+				@include retina('../images/watson_home_2x.png', 115px, 114px);
+				background-position: center center;
+				background-size: contain;
+				background-repeat: no-repeat;
+				margin-top: 150px;
 			}
 			
 			.message_wrapper{
@@ -256,7 +303,8 @@ header{
 				top: 65px;
 				bottom: 0;
 				width: 100%;
-				overflow: hidden;
+				overflow-x: hidden;
+				overflow-y: scroll;
 				table{
 					position: absolute;
 					left: -50%;
@@ -269,10 +317,34 @@ header{
 							color: black;
 							vertical-align: middle;
 							text-align: center;
+							&.valid{
+								background-color: $edu_cell_green;
+							}
+							&.invalid{
+								background-color: $edu_cell_red;
+							}
+							&.selected{
+								border: 2px dashed $edu_orange;
+							}
 						}
 					}
 				}
 			}
+			#math_box{
+				position: absolute;
+				display: none;
+				left: 15px;
+				right: 15px;
+				bottom: 15px;
+				background-color: white;
+				border-radius: 5px;
+				border: 1px solid #e3e3e3;
+				textarea{
+					border-radius: 5px;
+					width: 90%;
+				}
+			}
+			
 		}
 	}
 	
@@ -282,6 +354,14 @@ header{
 		height: 8px;
 		width: 100%;
 		background-color: $edu_light_grey;
+		.slider{
+			position: absolute;
+			left: 0;
+			height: 8px;
+			width: 100%;
+			background-color: $edu_teal;
+			@include transition(all 0.4s ease-in-out);
+		}
 	}
 }	
 
@@ -308,23 +388,58 @@ footer{
 		background-repeat: no-repeat;
 		@include retina('../images/mic-2x.png', 22px, 35px);
 		
-		.mic_circle{
+		div{
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			@include transform(translate(-50%, -50%));
+			width: 75px;
+			height: 75px;
+			opacity: 0;
+			@include transition(opacity 0.4s ease-in-out);
+
 			border-radius: 50%;
-			border: 1px solid white;
-			@include animation(scale 1.0s ease-in);
-			@include animation-fill-mode(backwards);
 		}
 		
-		@include keyframes(scale) {
-			0%, 100% {
-				@include transform(scale(1));
+		&.listening{
+			div{
+				opacity: 1;
+			}
+			
+			.mic_circle_small{
+				border: 2px solid white;
+				@include transform(translate(-50%, -50%) scale(0.75));
+			}
+			
+			.mic_circle_med{
+				border: 2px solid rgba(255, 255, 255, 0.5);
+				@include animation(med_scale 1.0s ease-in-out);
+				@include animation-fill-mode(backwards);
+				@include animation-iteration-count(infinite);
+			}
+			
+			.mic_circle_large{
+				border: 2px solid rgba(255, 255, 255, 0.25);
+				@include animation(large_scale 1.0s ease-in-out);
+				@include animation-fill-mode(backwards);
+				@include animation-iteration-count(infinite);
+			}
+		}
+		
+		@include keyframes(med_scale) {
+			100%, 0% {
+				@include transform(translate(-50%, -50%) scale(.75));
 			}
 			50% {
-				@include transform(scale(2));
+				@include transform(translate(-50%, -50%) scale(1.15));
+			}
+		}
+		
+		@include keyframes(large_scale) {
+			100%, 0% {
+				@include transform(translate(-50%, -50%) scale(.75));
+			}
+			50% {
+				@include transform(translate(-50%, -50%) scale(1.5));
 			}
 		}
 		

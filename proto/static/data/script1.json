@@ -3,7 +3,7 @@ var conversation = [
 		source: 1,
 		input: 0,
 		chat: "Hey Watson, I am working on my Algebra homework, and I just need to check my answer for the problem: x^2 + 4x + 6 = 0. For x, I got -&radic;2 - 2. Is it correct?",
-		scratch_paper: "x^2 + 4x + 6 = 0"
+		scratch_paper: "x^2 + 4x + 6 = 0",
 	},
 	{
 		source: 0,
@@ -28,13 +28,15 @@ var conversation = [
 		source: 1,
 		input: 0,
 		chat: "I started by subtracting 6 from both sides.  And I got x^2 + 4x = -6.",
-		scratch_paper: "x^2+4x=-6"
+		scratch_paper: "x^2+4x=-6",
+		validate: true
 	},
 	{
 		source: 1,
 		input: 0,
 		chat: "Then, I added 4 to both sides.  And I got  x^2 + 4x + 4 = -2.",
-		scratch_paper: "x^2 + 4x + 4 = -2"
+		scratch_paper: "x^2+4x+4=-2",
+		validate: true
 	},
 	{
 		source: 1,
@@ -50,15 +52,17 @@ var conversation = [
 	},
 	{
 		source: 1,
-		input: 1,
+		input: 2,
 		chat: null,
-		scratch_paper: null
+		scratch_paper: null,
+		validate: true
 	},
 	{
 		source: 1,
-		input: 1,
+		input: 2,
 		chat: null,
-		scratch_paper: null
+		scratch_paper: null,
+		validate: false
 	},
 	{
 		source: 0,
@@ -69,37 +73,25 @@ var conversation = [
 	{
 		source: 0,
 		input: null,
-		video: "media/ProfessorAlex.mp4",
+		video: "88q7wLApBJ4",
 		scratch_paper: null
 	},
 	{
 		source: 1,
-		input: 1,
+		input: 2,
 		chat: null,
 		scratch_paper: null
 	},
 	{
 		source: 1,
-		input: 1,
+		input: 2,
 		chat: null,
-		scratch_paper: null
-	},
-	{
-		source: 1,
-		input: 1,
-		chat: null,
-		scratch_paper: null
+		scratch_paper: 'x=&#177;i&nbsp;2-2'
 	},
 	{
 		source: 0,
 		input: null,
-		chat: "Good job Carlos! That’s correct! I saved our conversation into Notes. Just to summarize the concept: some functions don’t have real roots so we have to use imaginary roots instead.",
-		scratch_paper: null
-	},
-	{
-		source: 1,
-		input: 1,
-		chat: null,
+		chat: "Good job Carlos! That's correct! I saved our conversation into Notes. Just to summarize the concept: some functions don’t have real roots so we have to use imaginary roots instead.",
 		scratch_paper: null
 	},
 	{
@@ -111,7 +103,7 @@ var conversation = [
 	{
 		source: 0,
 		input: null,
-		video: "media/ProfessorAlex.mp4",
+		video: "fpViZkhpPHk",
 		scratch_paper: null
 	},
 ]

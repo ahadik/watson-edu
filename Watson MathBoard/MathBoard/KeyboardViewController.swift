@@ -74,6 +74,10 @@ class KeyboardViewController: UIInputViewController {
 
     }
     
+    @IBAction func didTapSend(key: UIButton){
+        (textDocumentProxy as UIKeyInput).insertText(( "\n" ))
+    }
+    
     @IBAction func didTapInsert() {
         var proxy = textDocumentProxy as UITextDocumentProxy
         
