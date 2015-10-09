@@ -429,18 +429,20 @@ $(document).ready(function(){
 	});
 		
 	$('td').click(function(){
-		if($(this).html()!=''){
-			$(this).attr('contenteditable', true).focus();
-			is_editing = true;
-		}else{
-			if(!is_editing){
-				$(this).toggleClass('selected');
+		if(mode == 1){
+			if($(this).html()!=''){
+				$(this).attr('contenteditable', true).focus();
+				is_editing = true;
+			}else{
+				if(!is_editing){
+					$(this).toggleClass('selected');
+				}
+				/*
+				else{
+					advance_conversation();
+				}
+				*/
 			}
-			/*
-			else{
-				advance_conversation();
-			}
-			*/
 		}
 		
 	});
