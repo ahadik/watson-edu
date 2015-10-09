@@ -228,6 +228,7 @@ function appendFormula(formula, validate, user_code){
 	
 	
 	for(var i = equal_ind+1; i<graph_parts.length; i++){
+		
 		working_cell.next().html(graph_parts[i]);
 		working_cell = working_cell.next().addClass(valid_class);
 	}
