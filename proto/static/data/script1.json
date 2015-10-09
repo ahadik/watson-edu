@@ -86,7 +86,7 @@ var conversation = [
 		source: 1,
 		input: 2,
 		chat: null,
-		scratch_paper: 'x=&#177;i&nbsp;2-2',
+		scratch_paper: 'x=&#177;i&radic;2-2',
 		validate: true
 	},
 	{
