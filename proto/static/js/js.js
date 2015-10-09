@@ -336,9 +336,9 @@ $(document).ready(function(){
 				var graph_diff = graph_width-grid_width;
 				$('#grid table').css({'left' : (graph_diff/2)+'px'});
 				if(mode == 1){
-					$('#workspace_slider .slider').width($('#chat').width());
+					$('#workspace_slider .slider').css({"width" : $('#graph_paper').width(), "left" : $('#chat').width()});
 				}else{
-					$('#workspace_slider .slider').width($('#graph_paper').width());
+					$('#workspace_slider .slider').css({"width" : $('#chat').width(), "left" : "0"});
 				}
 				
 			}
