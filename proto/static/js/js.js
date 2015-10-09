@@ -374,7 +374,6 @@ $(document).ready(function(){
 
 	$('textarea').on('focus', function(e){
 		is_editing = true;
-		$('#chat_box span').hide();
 		$('#chat_box textarea').css({'width' : '100%'});
 		$('footer').addClass('closed');
 		$('#workspace').css({'bottom': 0});

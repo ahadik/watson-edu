@@ -147,6 +147,15 @@ header {
     position: absolute;
     top: 0;
     bottom: 8px; }
+  #workspace span.mic_icon {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 35px;
+    height: 80%;
+    background-image: url("../images/mic_icon.png");
+    background-size: contain;
+    background-repeat: no-repeat; }
   #workspace #dragger {
     position: absolute;
     left: 100%;
@@ -264,15 +273,6 @@ header {
       #workspace #chat #chat_box textarea {
         border-radius: 5px;
         width: 90%; }
-      #workspace #chat #chat_box span {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 35px;
-        height: 100%;
-        background-image: url("../images/mic_icon.png");
-        background-size: contain;
-        background-repeat: no-repeat; }
   #workspace #graph_paper {
     right: 0;
     width: 0; }

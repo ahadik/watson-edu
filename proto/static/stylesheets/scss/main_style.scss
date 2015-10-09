@@ -118,6 +118,17 @@ header{
 		bottom: 8px;
 	}
 	
+	span.mic_icon{
+		position: absolute;
+		right: 0;
+		top: 10%;
+		width: 35px;
+		height: 80%;
+		background-image: url('../images/mic_icon.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	
 	#dragger{
 		position: absolute;
 		left: 100%;
@@ -268,16 +279,6 @@ header{
 			textarea{
 				border-radius: 5px;
 				width: 90%;
-			}
-			span{
-				position: absolute;
-				right: 0;
-				top: 0;
-				width: 35px;
-				height: 100%;
-				background-image: url('../images/mic_icon.png');
-				background-size: contain;
-				background-repeat: no-repeat;
 			}
 		}
 	}
